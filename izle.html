@@ -123,43 +123,23 @@
             </div>
         </div>
 
-        <!-- Anonim Yorum Alanı (4chan Tarzı) -->
-        <div class="site-card bg-pinkCard p-4 md:p-6 rounded-2xl border border-pinkAccent/20 shadow-md transition-colors duration-300">
-            <div class="flex items-center justify-between mb-4 border-b border-pinkAccent/10 pb-3">
-                <h3 class="text-base font-extrabold flex items-center gap-2">
-                    💬 Anonim Yorumlar <span class="text-xs bg-pinkAccent text-white px-2 py-0.5 rounded-full font-normal">4chan Mode</span>
-                </h3>
-                <span class="text-[11px] opacity-60">Giriş yapmanız gerekmez.</span>
-            </div>
+      <!-- Yorumlar Bölümü (Geçici Yakında Gelecek Modu) -->
+<div class="relative bg-pinkCard p-6 rounded-2xl border border-pinkAccent/20 overflow-hidden shadow-sm">
+    
+    <!-- Arkadaki Blur Efekti Verilmiş İçerik -->
+    <div class="filter blur-[3px] pointer-events-none select-none opacity-40 space-y-4">
+        <h3 class="text-xl font-bold">Film Yorumları</h3>
+        <div class="bg-white/50 p-4 rounded-xl">Örnek Yorum Alanı</div>
+    </div>
 
-            <!-- Yorum Formu -->
-            <form id="comment-form" onsubmit="postComment(event)" class="space-y-3 mb-6">
-                <div class="flex gap-3">
-                    <input 
-                        type="text" 
-                        id="comment-author" 
-                        placeholder="Rumuz (Boş bırakılırsa: Anonymous)" 
-                        class="bg-white/80 text-gray-800 border border-pinkAccent/20 rounded-xl px-3 py-2 text-xs font-semibold w-1/2 focus:outline-none focus:border-pinkAccent transition"
-                    >
-                </div>
-                <textarea 
-                    id="comment-text" 
-                    rows="3" 
-                    placeholder="Sensha-do hakkında ne düşünüyorsun? Düşüncelerini özgürce yaz..." 
-                    required
-                    class="w-full bg-white/80 text-gray-800 border border-pinkAccent/20 rounded-xl p-3 text-xs font-medium focus:outline-none focus:border-pinkAccent transition resize-none"
-                ></textarea>
-                <button type="submit" class="bg-pinkAccent hover:bg-pinkAccentHover text-white text-xs font-bold px-5 py-2.5 rounded-xl shadow transition flex items-center gap-2">
-                    <span>Gönder</span> 🚀
-                </button>
-            </form>
+    <!-- Üzerindeki "Yakında Gelecek" Overlay Katmanı -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 backdrop-blur-[2px] z-10 text-white text-center p-4">
+        <span class="text-2xl font-black mb-1">Yorum Sistemi</span>
+        <span class="text-sm font-semibold bg-pinkAccent px-4 py-2 rounded-full shadow-lg animate-pulse">Çok Yakında Aktif!</span>
+        <p class="text-xs opacity-90 mt-2 font-medium">Güncellenecek</p>
+    </div>
 
-            <!-- Yorum Akışı -->
-            <div id="comments-list" class="space-y-3 border-t border-pinkAccent/10 pt-4">
-                <!-- Yorumlar Supabase'den dinamik olarak yüklenecek -->
-            </div>
-        </div>
-
+</div>
     </main>
 
     <!-- Footer -->
