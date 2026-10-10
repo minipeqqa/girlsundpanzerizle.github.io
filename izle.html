@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girls und Panzer 1. Sezon 1. Bölüm İzle - GirlsundPanzerizle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Supabase JS Kütüphanesi -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Pembe Tema
+                        pinkBg: '#fdf2f8',
+                        pinkCard: '#fce7f3',
+                        pinkHeader: '#fbcfe8',
+                        pinkText: '#831843',
+                        pinkAccent: '#db2777',
+                        pinkAccentHover: '#be185d',
+
+                        // Mor Tema
+                        purpleBg: '#0f172a',
+                        purpleCard: '#1e293b',
+                        purpleHeader: '#020617',
+                        purpleText: '#f8fafc',
+                        purpleAccent: '#a855f7',
+                        purpleAccentHover: '#9333ea',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body id="site-body" class="bg-pinkBg text-pinkText font-sans min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+    <!-- Üst Menü -->
+    <header id="site-header" class="bg-pinkHeader border-b border-pinkAccent/20 sticky top-0 z-50 shadow-sm transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-black tracking-wider flex items-center gap-2">
+                🌸 GIRLSundPANZER<span class="text-xs bg-pinkAccent text-white px-2 py-0.5 rounded-full">izle.com</span>
+            </a>
+            
+            <div class="flex items-center gap-6">
+                <nav class="space-x-6 font-semibold text-sm">
+                    <a href="index.html" class="hover:underline">Ana Sayfa</a>
+                    <a href="index.html#sezonlar" class="hover:underline">Sezonlar</a>
+                </nav>
+
+                <!-- Tema Değiştirme Butonu -->
+                <button onclick="toggleTheme()" id="theme-btn" class="bg-white/80 hover:bg-white text-xs font-bold px-3 py-1.5 rounded-full border border-pinkAccent/30 shadow-sm flex items-center gap-1.5 transition">
+                    <span id="theme-icon">🔮</span>
+                    <span id="theme-text">Karanlık / Mor Tema</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- İzleme Alanı -->
+    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full space-y-6">
+        
+        <!-- Video Kartı -->
+        <div class="site-card bg-pinkCard p-4 md:p-6 rounded-2xl border border-pinkAccent/20 shadow-md transition-colors duration-300">
+            
+            <!-- Başlık ve Kaynaklar -->
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+                <div>
+                    <span class="bg-pinkAccent text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">1. Sezon</span>
+                    <h1 class="text-2xl font-black mt-1">1. Bölüm: "Sensha-do Başlıyor!"</h1>
+                </div>
+                
+                <!-- Alternatif Sunucular -->
+                <div class="flex items-center gap-2 text-xs font-bold">
+                    <span class="opacity-70">Sunucu:</span>
+                    <button onclick="changeServer('okru')" id="btn-okru" class="bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition">OK.ru</button>
+                    <button onclick="changeServer('mega')" id="btn-mega" class="bg-white/80 hover:bg-white text-gray-800 px-3 py-1.5 rounded-lg border border-pinkAccent/30 shadow-sm transition">Mega</button>
+                </div>
+            </div>
+
+            <!-- Video Player (16:9) -->
+            <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden shadow-inner flex items-center justify-center border border-pinkAccent/20">
+                <iframe 
+                    id="video-player"
+                    src="https://ok.ru/videoembed/BURAYA_OKRU_VIDEO_ID" 
+                    class="w-full h-full border-0" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- Önceki / Sonraki Bölüm Butonları -->
+            <div class="flex justify-between items-center mt-4">
+                <button class="bg-white/80 hover:bg-white text-gray-800 text-xs font-bold px-4 py-2 rounded-xl border border-pinkAccent/20 transition opacity-50 cursor-not-allowed">← Önceki Bölüm</button>
+                <a href="izle.html" class="bg-pinkAccent hover:bg-pinkAccentHover text-white text-xs font-bold px-4 py-2 rounded-xl shadow transition">Sonraki Bölüm →</a>
+            </div>
+        </div>
+
+        <!-- Bölüm Seçim Listesi -->
+        <div class="site-card bg-pinkCard p-4 rounded-2xl border border-pinkAccent/20 transition-colors duration-300">
+            <h3 class="text-sm font-extrabold mb-3">1. Sezon Bölümleri</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 text-xs font-bold">
+                <a href="izle.html" class="bg-pinkAccent text-white p-2.5 rounded-xl text-center shadow">1. Bölüm</a>
+                <a href="#" class="bg-white/80 hover:bg-white text-gray-800 p-2.5 rounded-xl text-center border border-pinkAccent/20 transition">2. Bölüm</a>
+                <a href="#" class="bg-white/80 hover:bg-white text-gray-800 p-2.5 rounded-xl text-center border border-pinkAccent/20 transition">3. Bölüm</a>
+                <a href="#" class="bg-white/80 hover:bg-white text-gray-800 p-2.5 rounded-xl text-center border border-pinkAccent/20 transition">4. Bölüm</a>
+                <a href="#" class="bg-white/80 hover:bg-white text-gray-800 p-2.5 rounded-xl text-center border border-pinkAccent/20 transition">5. Bölüm</a>
+                <a href="#" class="bg-white/80 hover:bg-white text-gray-800 p-2.5 rounded-xl text-center border border-pinkAccent/20 transition">6. Bölüm</a>
+            </div>
+        </div>
+
+        <!-- Çeviri ve Emek Bilgisi Kutusu -->
+        <div class="site-card bg-pinkCard p-4 rounded-xl border border-pinkAccent/20 flex flex-col md:flex-row justify-between items-center gap-3 text-xs font-semibold transition-colors duration-300">
+            <div class="flex items-center gap-2">
+                <span class="text-lg">🎬</span>
+                <div>
+                    <p class="font-bold text-sm">Çeviri & Sub Hizmeti</p>
+                    <p class="opacity-70">Bu bölümün Türkçe çevirisi ilgili Fansub ekibi tarafından hazırlanmıştır.</p>
+                </div>
+            </div>
+            <div class="bg-white/80 text-gray-800 px-4 py-2 rounded-lg border border-pinkAccent/20 text-center">
+                <span class="opacity-60 block text-[10px]">ÇEVİRİ EKİBİ</span>
+                <span class="font-extrabold text-pinkAccent">Girls und Panzer TR</span>
+            </div>
+        </div>
+
+        <!-- Anonim Yorum Alanı (4chan Tarzı) -->
+        <div class="site-card bg-pinkCard p-4 md:p-6 rounded-2xl border border-pinkAccent/20 shadow-md transition-colors duration-300">
+            <div class="flex items-center justify-between mb-4 border-b border-pinkAccent/10 pb-3">
+                <h3 class="text-base font-extrabold flex items-center gap-2">
+                    💬 Anonim Yorumlar <span class="text-xs bg-pinkAccent text-white px-2 py-0.5 rounded-full font-normal">4chan Mode</span>
+                </h3>
+                <span class="text-[11px] opacity-60">Giriş yapmanız gerekmez.</span>
+            </div>
+
+            <!-- Yorum Formu -->
+            <form id="comment-form" onsubmit="postComment(event)" class="space-y-3 mb-6">
+                <div class="flex gap-3">
+                    <input 
+                        type="text" 
+                        id="comment-author" 
+                        placeholder="Rumuz (Boş bırakılırsa: Anonymous)" 
+                        class="bg-white/80 text-gray-800 border border-pinkAccent/20 rounded-xl px-3 py-2 text-xs font-semibold w-1/2 focus:outline-none focus:border-pinkAccent transition"
+                    >
+                </div>
+                <textarea 
+                    id="comment-text" 
+                    rows="3" 
+                    placeholder="Sensha-do hakkında ne düşünüyorsun? Düşüncelerini özgürce yaz..." 
+                    required
+                    class="w-full bg-white/80 text-gray-800 border border-pinkAccent/20 rounded-xl p-3 text-xs font-medium focus:outline-none focus:border-pinkAccent transition resize-none"
+                ></textarea>
+                <button type="submit" class="bg-pinkAccent hover:bg-pinkAccentHover text-white text-xs font-bold px-5 py-2.5 rounded-xl shadow transition flex items-center gap-2">
+                    <span>Gönder</span> 🚀
+                </button>
+            </form>
+
+            <!-- Yorum Akışı -->
+            <div id="comments-list" class="space-y-3 border-t border-pinkAccent/10 pt-4">
+                <!-- Yorumlar Supabase'den dinamik olarak yüklenecek -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="site-footer" class="bg-pinkHeader border-t border-pinkAccent/20 py-6 text-center text-sm font-medium transition-colors duration-300">
+        <p>Girls und Panzer Türkiye Topluluğu © 2026</p>
+    </footer>
+
+    <!-- JS Mantığı -->
+    <script>
+        // Supabase Bağlantı Bilgileri
+        const SUPABASE_URL = 'https://drxetzpojimudcxhgvb.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_kDszBZI_Uh8MnPLnMiWc4g_QRl8WNND';
+        
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const currentPageId = 'sezon1-bolum1'; // Her sayfanın kendi kimliği
+
+        // Veritabanından Yorumları Çekme
+        async function fetchComments() {
+            const commentsList = document.getElementById('comments-list');
+            const { data, error } = await supabaseClient
+                .from('comments')
+                .select('*')
+                .eq('page_id', currentPageId)
+                .order('created_at', { ascending: false });
+
+            if (error) {
+                console.error('Yorumlar çekilirken hata oluştu:', error);
+                return;
+            }
+
+            commentsList.innerHTML = '';
+            if (data.length === 0) {
+                commentsList.innerHTML = '<p class="text-xs opacity-60 text-center py-2">Henüz yorum yapılmamış. İlk yorumu sen yaz!</p>';
+                return;
+            }
+
+            data.forEach(comment => {
+                const dateObj = new Date(comment.created_at);
+                const timeString = `${dateObj.getDate().toString().padStart(2, '0')}/${(dateObj.getMonth()+1).toString().padStart(2, '0')}/${dateObj.getFullYear()} - ${dateObj.getHours().toString().padStart(2, '0')}:${dateObj.getMinutes().toString().padStart(2, '0')}`;
+                
+                const commentEl = document.createElement('div');
+                commentEl.className = "bg-white/60 text-gray-800 p-3 rounded-xl border border-pinkAccent/10 text-xs shadow-sm";
+                commentEl.innerHTML = `
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="font-bold text-pinkAccent">${comment.author || 'Anonymous'}</span>
+                        <span class="text-[10px] opacity-50">${timeString}</span>
+                    </div>
+                    <p class="opacity-90">${comment.text}</p>
+                `;
+                commentsList.appendChild(commentEl);
+            });
+        }
+
+        // Veritabanına Yorum Gönderme
+        async function postComment(event) {
+            event.preventDefault();
+            const authorInput = document.getElementById('comment-author');
+            const textInput = document.getElementById('comment-text');
+
+            const author = authorInput.value.trim() !== "" ? authorInput.value.trim() : "Anonymous";
+            const text = textInput.value.trim();
+
+            if (!text) return;
+
+            const { error } = await supabaseClient
+                .from('comments')
+                .insert([{ page_id: currentPageId, author: author, text: text }]);
+
+            if (error) {
+                alert('Yorum gönderilemedi: ' + error.message);
+                return;
+            }
+
+            authorInput.value = "";
+            textInput.value = "";
+            fetchComments();
+        }
+
+        // Sayfa açıldığında yorumları yükle
+        document.addEventListener('DOMContentLoaded', fetchComments);
+
+        // Aktif bölüme ait video bağlantıları
+        const episodeLinks = {
+            okru: "https://ok.ru/videoembed/BURAYA_OKRU_VIDEO_ID",
+            mega: "https://mega.nz/embed/BURAYA_MEGA_VIDEO_ID"
+        };
+
+        function changeServer(server) {
+            const player = document.getElementById('video-player');
+            const btnOkru = document.getElementById('btn-okru');
+            const btnMega = document.getElementById('btn-mega');
+
+            if (server === 'okru') {
+                player.src = episodeLinks.okru;
+                btnOkru.className = "bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition";
+                btnMega.className = "bg-white/80 hover:bg-white text-gray-800 px-3 py-1.5 rounded-lg border border-pinkAccent/30 shadow-sm transition";
+            } else if (server === 'mega') {
+                player.src = episodeLinks.mega;
+                btnMega.className = "bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition";
+                btnOkru.className = "bg-white/80 hover:bg-white text-gray-800 px-3 py-1.5 rounded-lg border border-pinkAccent/30 shadow-sm transition";
+            }
+        }
+
+        // Sayfa yüklendiğinde hafızadaki temayı uygula
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'purple') {
+                applyPurpleTheme();
+            } else {
+                applyPinkTheme();
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initTheme);
+        } else {
+            initTheme();
+        }
+
+        function toggleTheme() {
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'purple') {
+                localStorage.setItem('theme', 'pink');
+                applyPinkTheme();
+            } else {
+                localStorage.setItem('theme', 'purple');
+                applyPurpleTheme();
+            }
+        }
+
+        function applyPurpleTheme() {
+            const body = document.getElementById('site-body');
+            const header = document.getElementById('site-header');
+            const footer = document.getElementById('site-footer');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+
+            if (body) body.className = "bg-purpleBg text-purpleText font-sans min-h-screen flex flex-col justify-between transition-colors duration-300";
+            if (header) header.className = "bg-purpleHeader border-b border-purpleAccent/20 sticky top-0 z-50 shadow-sm transition-colors duration-300";
+            if (footer) footer.className = "bg-purpleHeader border-t border-purpleAccent/20 py-6 text-center text-sm font-medium transition-colors duration-300";
+
+            document.querySelectorAll('.site-card').forEach(card => {
+                card.classList.remove('bg-pinkCard');
+                card.classList.add('bg-purpleCard', 'border-purpleAccent/20');
+            });
+
+            if (themeIcon) themeIcon.innerText = "🌸";
+            if (themeText) themeText.innerText = "Pembe Tema";
+        }
+
+        function applyPinkTheme() {
+            const body = document.getElementById('site-body');
+            const header = document.getElementById('site-header');
+            const footer = document.getElementById('site-footer');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+
+            if (body) body.className = "bg-pinkBg text-pinkText font-sans min-h-screen flex flex-col justify-between transition-colors duration-300";
+            if (header) header.className = "bg-pinkHeader border-b border-pinkAccent/20 sticky top-0 z-50 shadow-sm transition-colors duration-300";
+            if (footer) footer.className = "bg-pinkHeader border-t border-pinkAccent/20 py-6 text-center text-sm font-medium transition-colors duration-300";
+
+            document.querySelectorAll('.site-card').forEach(card => {
+                card.classList.remove('bg-purpleCard', 'border-purpleAccent/20');
+                card.classList.add('bg-pinkCard');
+            });
+
+            if (themeIcon) themeIcon.innerText = "🔮";
+            if (themeText) themeText.innerText = "Karanlık / Mor Tema";
+        }
+    </script>
+</body>
+</html>
