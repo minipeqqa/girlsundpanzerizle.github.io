@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetici Paneli - GirlsundPanzerizle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purpleBg: '#0f172a', purpleCard: '#1e293b', purpleHeader: '#020617', purpleAccent: '#a855f7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-purpleBg text-slate-100 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Güvenlik Kontrolü -->
+    <script>
+        if (sessionStorage.getItem('admin_session') !== 'authenticated_yusuf_2026') {
+            window.location.href = 'admin-login.html';
+        }
+    </script>
+
+    <!-- Üst Bar -->
+    <header class="bg-purpleHeader border-b border-purpleAccent/20 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <span class="text-2xl">🌸</span>
+            <div>
+                <h1 class="font-black text-lg">Yönetim Paneli</h1>
+                <p class="text-[10px] text-slate-400">Hoş geldin, <span class="text-purpleAccent font-bold">ytbr_yusuf</span></p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="index.html" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg border border-slate-700 transition">Sitemi Gör ↗</a>
+            <button onclick="logout()" class="text-xs bg-red-600/80 hover:bg-red-600 text-white font-bold px-3 py-1.5 rounded-lg transition">Çıkış Yap</button>
+        </div>
+    </header>
+
+    <!-- İstatistik Kartları -->
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
+
+        <!-- Özet Kartları -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+            
+            <div class="bg-purpleCard p-5 rounded-2xl border border-purpleAccent/20 shadow-sm">
+                <span class="text-xs font-bold uppercase opacity-60">Toplam Tekil Ziyaretçi</span>
+                <div class="text-3xl font-black text-purpleAccent mt-2" id="stat-visitors">--</div>
+                <span class="text-[10px] text-emerald-400 font-semibold">Canlı Sayım Aktif</span>
+            </div>
+
+            <div class="bg-purpleCard p-5 rounded-2xl border border-purpleAccent/20 shadow-sm">
+                <span class="text-xs font-bold uppercase opacity-60">Toplam İzlenme (1. Bölüm)</span>
+                <div class="text-3xl font-black text-pink-500 mt-2" id="stat-views">--</div>
+                <span class="text-[10px] text-slate-400">DoodStream + Mega</span>
+            </div>
+
+            <div class="bg-purpleCard p-5 rounded-2xl border border-purpleAccent/20 shadow-sm">
+                <span class="text-xs font-bold uppercase opacity-60">Fav Sunucu Tercihi</span>
+                <div class="text-2xl font-black text-indigo-400 mt-2" id="stat-server">DoodStream</div>
+                <span class="text-[10px] text-slate-400">%85 Oranında Kullanım</span>
+            </div>
+
+            <div class="bg-purpleCard p-5 rounded-2xl border border-purpleAccent/20 shadow-sm">
+                <span class="text-xs font-bold uppercase opacity-60">Toplam Yorum</span>
+                <div class="text-3xl font-black text-amber-400 mt-2" id="stat-comments">0</div>
+                <span class="text-[10px] text-amber-500 font-semibold">Sistem Yakında Aktif</span>
+            </div>
+
+        </div>
+
+        <!-- Bölüm İzlenme Detayları Tablosu -->
+        <div class="bg-purpleCard rounded-2xl border border-purpleAccent/20 p-6 shadow-sm">
+            <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+                <span>📊</span> Bölüm Bazlı İzlenme İstatistikleri
+            </h2>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-900 text-slate-400 uppercase tracking-wider">
+                        <tr>
+                            <th class="p-3 rounded-l-lg">Bölüm Adı</th>
+                            <th class="p-3">DoodStream İzlenme</th>
+                            <th class="p-3">Mega İzlenme</th>
+                            <th class="p-3 rounded-r-lg">Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800 font-medium">
+                        <tr>
+                            <td class="p-3 font-bold text-slate-200">1. Sezon - 1. Bölüm</td>
+                            <td class="p-3 text-purpleAccent font-bold">142 izlenme</td>
+                            <td class="p-3 text-slate-400">18 izlenme</td>
+                            <td class="p-3"><span class="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[10px]">Aktif / Canlı</span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-slate-200">1. Sezon - 2. Bölüm</td>
+                            <td class="p-3 text-slate-500">--</td>
+                            <td class="p-3 text-slate-500">--</td>
+                            <td class="p-3"><span class="bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded text-[10px]">Beklemede</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-purpleHeader border-t border-purpleAccent/20 py-4 text-center text-xs text-slate-400">
+        GirlsundPanzerizle Admin Panel © 2026
+    </footer>
+
+    <script>
+        // Supabase veya Mock Veri Yükleme
+        function loadStats() {
+            // İleride Supabase'e bağlandığında doğrudan veritabanından çekilecek
+            document.getElementById('stat-visitors').innerText = "328";
+            document.getElementById('stat-views').innerText = "160";
+        }
+
+        function logout() {
+            sessionStorage.removeItem('admin_session');
+            window.location.href = 'admin-login.html';
+        }
+
+        window.onload = loadStats;
+    </script>
+</body>
+</html>

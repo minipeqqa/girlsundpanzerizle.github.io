@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetici Girişi - GirlsundPanzerizle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        purpleBg: '#0f172a', purpleCard: '#1e293b', purpleAccent: '#a855f7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-purpleBg text-slate-100 font-sans min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-purpleCard w-full max-w-md p-8 rounded-2xl border border-purpleAccent/30 shadow-2xl space-y-6">
+        <div class="text-center">
+            <span class="text-3xl">🌸</span>
+            <h1 class="text-2xl font-black mt-2">Yönetici Paneli Girişi</h1>
+            <p class="text-xs text-slate-400 mt-1">GirlsundPanzerizle Yönetim Sistemi</p>
+        </div>
+
+        <form id="login-form" onsubmit="handleLogin(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs font-bold uppercase tracking-wider mb-1 opacity-80">Kullanıcı Adı</label>
+                <input type="text" id="username" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-purpleAccent">
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold uppercase tracking-wider mb-1 opacity-80">Şifre</label>
+                <input type="password" id="password" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-purpleAccent">
+            </div>
+
+            <div id="error-msg" class="hidden text-xs text-red-400 font-semibold text-center bg-red-950/50 py-2 rounded-lg border border-red-800">
+                Kullanıcı adı veya şifre hatalı!
+            </div>
+
+            <button type="submit" class="w-full bg-purpleAccent hover:bg-purple-600 text-white font-bold py-3 rounded-xl shadow-lg transition duration-200 text-sm">
+                Giriş Yap →
+            </button>
+        </form>
+
+        <div class="text-center">
+            <a href="index.html" class="text-xs text-slate-400 hover:underline">← Ana Sayfaya Dön</a>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            const errorMsg = document.getElementById('error-msg');
+
+            // Bilgilerin Kontrolü
+            if (user === 'ytbr_yusuf' && pass === 'yusufavm') {
+                sessionStorage.setItem('admin_session', 'authenticated_yusuf_2026');
+                window.location.href = 'admin.html';
+            } else {
+                errorMsg.classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
