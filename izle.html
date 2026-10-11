@@ -54,7 +54,7 @@
                 <!-- Sunucu Seçimi -->
                 <div class="flex items-center gap-2 text-xs font-bold">
                     <span class="opacity-70">Sunucu:</span>
-                    <button onclick="changeServer('okru')" id="btn-okru" class="bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition">OK.ru</button>
+                    <button onclick="changeServer('dood')" id="btn-dood" class="bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition">DoodStream</button>
                     <button onclick="changeServer('mega')" id="btn-mega" class="bg-white/80 hover:bg-white text-gray-800 px-3 py-1.5 rounded-lg border border-pinkAccent/30 shadow-sm transition">Mega</button>
                 </div>
             </div>
@@ -63,7 +63,7 @@
             <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden shadow-inner flex items-center justify-center border border-pinkAccent/20 mb-6">
                 <iframe 
                     id="video-player"
-                    src="https://ok.ru/videoembed/16306920819384" 
+                    src="https://dood.to/e/BURAYA_DOODSTREAM_ID" 
                     class="w-full h-full border-0" 
                     allowfullscreen>
                 </iframe>
@@ -93,7 +93,7 @@
             </div>
         </div>
 
-        <!-- Yorumlar Bölümü (Geçici Yakında Gelecek Modu) -->
+        <!-- Yorumlar Bölümü -->
         <div class="relative bg-pinkCard p-6 rounded-2xl border border-pinkAccent/20 overflow-hidden shadow-sm">
             <div class="filter blur-[3px] pointer-events-none select-none opacity-40 space-y-4">
                 <h3 class="text-xl font-bold">Bölüm Yorumları</h3>
@@ -115,24 +115,24 @@
 
     <!-- JS Mantığı -->
     <script>
-        // 12 Bölümlük Video Linkleri Deposu
+        // 12 Bölümlük Video Linkleri Deposu (DoodStream ve Mega)
         const episodes = {
-            1: { okru: "https://ok.ru/videoembed/16307412994744", mega: "https://mega.nz/embed/BURAYA_BOLUM_1_MEGA_ID" },
-            2: { okru: "https://ok.ru/videoembed/16307274582712", mega: "https://mega.nz/embed/BURAYA_BOLUM_2_MEGA_ID" },
-            3: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_3_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_3_MEGA_ID" },
-            4: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_4_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_4_MEGA_ID" },
-            5: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_5_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_5_MEGA_ID" },
-            6: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_6_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_6_MEGA_ID" },
-            7: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_7_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_7_MEGA_ID" },
-            8: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_8_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_8_MEGA_ID" },
-            9: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_9_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_9_MEGA_ID" },
-            10: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_10_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_10_MEGA_ID" },
-            11: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_11_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_11_MEGA_ID" },
-            12: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_12_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_12_MEGA_ID" }
+            1: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_1_MEGA_ID" },
+            2: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_2_MEGA_ID" },
+            3: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_3_MEGA_ID" },
+            4: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_4_MEGA_ID" },
+            5: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_5_MEGA_ID" },
+            6: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_6_MEGA_ID" },
+            7: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_7_MEGA_ID" },
+            8: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_8_MEGA_ID" },
+            9: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_9_MEGA_ID" },
+            10: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_10_MEGA_ID" },
+            11: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_11_MEGA_ID" },
+            12: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_12_MEGA_ID" }
         };
 
         let currentEpisode = 1;
-        let currentServer = 'okru';
+        let currentServer = 'dood';
 
         // Sayfa yüklendiğinde butonları oluştur
         function renderEpisodeButtons() {
@@ -169,17 +169,17 @@
         function changeServer(server) {
             currentServer = server;
             const player = document.getElementById('video-player');
-            const btnOkru = document.getElementById('btn-okru');
+            const btnDood = document.getElementById('btn-dood');
             const btnMega = document.getElementById('btn-mega');
 
             player.src = episodes[currentEpisode][currentServer];
 
-            if (server === 'okru') {
-                btnOkru.className = "bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition";
+            if (server === 'dood') {
+                btnDood.className = "bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition";
                 btnMega.className = "bg-white/80 hover:bg-white text-gray-800 px-3 py-1.5 rounded-lg border border-pinkAccent/30 shadow-sm transition";
             } else {
                 btnMega.className = "bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition";
-                btnOkru.className = "bg-white/80 hover:bg-white text-gray-800 px-3 py-1.5 rounded-lg border border-pinkAccent/30 shadow-sm transition";
+                btnDood.className = "bg-white/80 hover:bg-white text-gray-800 px-3 py-1.5 rounded-lg border border-pinkAccent/30 shadow-sm transition";
             }
         }
 
