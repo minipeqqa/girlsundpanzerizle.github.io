@@ -219,15 +219,21 @@
 
     </main>
 
- <!-- Alt Bilgi (Footer) -->
-    <footer id="site-footer" class="bg-pinkHeader border-t border-pinkAccent/20 py-6 text-center text-sm font-medium transition-colors duration-300 relative">
-        <p>Girls und Panzer Türkiye Topluluğu © 2026</p>
+<!-- Alt Bilgi (Footer) -->
+<footer id="site-footer" class="bg-pinkHeader border-t border-pinkAccent/20 py-6 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center relative">
+        <!-- Ortadaki Telif Yazısı -->
+        <p class="w-full text-center text-sm font-medium">
+            Girls und Panzer Türkiye Topluluğu © 2026
+        </p>
         
-        <!-- Sağ Köşede Gizli Yönetici Girişi Butonu -->
-        <a href="admin-login.html" title="Yönetici Paneli" class="absolute right-4 top-1/2 -translate-y-1/2 opacity-30 hover:opacity-100 transition text-base">
-            🔐
+        <!-- Sağ Köşede Belirgin Yönetici Giriş Butonu -->
+        <a href="admin-login.html" title="Yönetici Paneli Girişi" class="absolute right-4 bg-white/50 hover:bg-white p-2 rounded-xl border border-pinkAccent/30 shadow-sm opacity-60 hover:opacity-100 transition duration-200 text-sm flex items-center gap-1">
+            <span>🔐</span>
+            <span class="text-[10px] font-bold hidden sm:inline">Admin</span>
         </a>
-    </footer>
+    </div>
+</footer>
 <!-- %100 Kararlı Tema Hafızası JS -->
 <script>
     // Sayfa yüklendiğinde hafızadaki temayı uygula
