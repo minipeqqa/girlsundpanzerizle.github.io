@@ -6,6 +6,8 @@
     <title>Girls und Panzer Türkçe İzle - Türkiye Topluluğu</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Supabase JS Kütüphanesi -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -59,7 +61,6 @@
 
 <!-- Banner (Hero Banner) -->
 <section class="relative bg-cover bg-center py-20 px-4 text-center border-b border-pinkAccent/20 overflow-hidden" style="background-image: url('images/800405.jpg');">
-    <!-- Karartma Katmanı (Bulanıklık kaldırıldı, hafif net karartma bırakıldı) -->
     <div class="absolute inset-0 bg-black/40"></div>
 
     <div class="relative z-10 max-w-4xl mx-auto text-white">
@@ -83,7 +84,7 @@
             <a href="izle.html" class="bg-pinkAccent hover:bg-pinkAccentHover text-white text-sm font-bold px-6 py-2.5 rounded-xl shadow transition">Devam Et →</a>
         </div>
 
-   <!-- Sezonlar ve Özel İçerikler Grid -->
+    <!-- Sezonlar ve Özel İçerikler Grid -->
 <section id="sezonlar">
     <h2 class="text-2xl font-black mb-6">Sezonlar ve özel içerikler</h2>
     
@@ -133,7 +134,7 @@
                 <span class="text-xs font-bold text-pinkAccent mt-3 block">Hemen İzle →</span>
             </div>
         </a>
-	
+    
         <!-- Das Finale -->
         <a href="dasfinale.html" class="site-card group bg-pinkCard rounded-2xl overflow-hidden border border-pinkAccent/20 shadow-sm hover:border-pinkAccent transition duration-300 flex flex-col justify-between">
             <div class="relative h-48 overflow-hidden">
@@ -171,29 +172,29 @@
         <div>
             <span class="text-[10px] font-bold uppercase opacity-60">İÇERİK</span>
             <h3 class="text-lg font-bold mt-1">Girls und Panzer Türkçe Wikimiz!</h3>
-            <p class="text-xs opacity-70 mt-1">Anime hakkında bilgi veya sadecec karıştırmak için kullanabilirsiniz!.</p>
+            <p class="text-xs opacity-70 mt-1">Anime hakkında bilgi veya sadece karıştırmak için kullanabilirsiniz!</p>
         </div>
         <a href="#arsiv" class="mt-4 bg-pinkAccent hover:bg-pinkAccentHover text-white text-xs font-bold py-2.5 rounded-xl transition text-center block shadow">
             Arşive Git
         </a>
     </div>
-<!-- Destek Kutusu (Kreosus & Topluluk) -->
-<div class="site-card bg-pinkCard rounded-2xl p-5 border border-pinkAccent/20 flex flex-col justify-between">
-    <div>
-        <span class="text-[10px] font-bold uppercase opacity-60">DESTEK</span>
-        <h3 class="text-lg font-bold mt-1">Projeye Katkıda Bulun</h3>
-        <p class="text-xs opacity-70 mt-1">Domain masraflarımıza destek ol veya çeviri ekibimize katılarak bize yardım et!</p>
+
+    <!-- Destek Kutusu -->
+    <div class="site-card bg-pinkCard rounded-2xl p-5 border border-pinkAccent/20 flex flex-col justify-between">
+        <div>
+            <span class="text-[10px] font-bold uppercase opacity-60">DESTEK</span>
+            <h3 class="text-lg font-bold mt-1">Projeye Katkıda Bulun</h3>
+            <p class="text-xs opacity-70 mt-1">Domain masraflarımıza destek ol veya çeviri ekibimize katılarak bize yardım et!</p>
+        </div>
+        <div class="flex gap-2 mt-4">
+            <a href="https://kreosus.com/girlsundpanzerturkiye" target="_blank" rel="noopener noreferrer" class="flex-1 bg-pinkAccent hover:bg-pinkAccentHover text-white text-xs font-bold py-2.5 rounded-xl transition text-center shadow">
+                Destek Ol ☕
+            </a>
+        </div>
     </div>
-    <div class="flex gap-2 mt-4">
-        <!-- Kreosus Bağış Linki -->
-        <a href="https://kreosus.com/girlsundpanzerturkiye" target="_blank" rel="noopener noreferrer" class="flex-1 bg-pinkAccent hover:bg-pinkAccentHover text-white text-xs font-bold py-2.5 rounded-xl transition text-center shadow">
-            Destek Ol ☕
-        </a>
-    </div>
-</div>
 </section>
 
-        <!-- Bilgilendirme Kutuları (Neden & Konu) -->
+        <!-- Bilgilendirme Kutuları -->
         <section id="hakkinda" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="site-card bg-pinkCard p-6 rounded-2xl border border-pinkAccent/20">
                 <h3 class="text-xl font-bold mb-3">Neden girlsundpanzerizle.com?</h3>
@@ -209,7 +210,7 @@
                 </p>
             </div>
 
-<div class="site-card bg-pinkCard p-6 rounded-2xl border border-pinkAccent/20">
+            <div class="site-card bg-pinkCard p-6 rounded-2xl border border-pinkAccent/20 md:col-span-2">
                 <h3 class="text-xl font-bold mb-3">Girls und Panzer Türkiye Topluluğu</h3>
                 <p class="text-sm opacity-80 leading-relaxed">
                     Bu Topluluk, <strong>Girls und Panzer</strong> isimli animenin türkiyedeki hayran kitlesi için kurulmuş bir topluluktur.
@@ -222,7 +223,6 @@
 <!-- Alt Bilgi (Footer) -->
 <footer id="site-footer" class="bg-pinkHeader border-t border-pinkAccent/20 py-6 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 flex justify-between items-center relative">
-        <!-- Ortadaki Telif Yazısı -->
         <p class="w-full text-center text-sm font-medium">
             Girls und Panzer Türkiye Topluluğu © 2026
         </p>
@@ -234,9 +234,30 @@
         </a>
     </div>
 </footer>
-<!-- %100 Kararlı Tema Hafızası JS -->
+
+<!-- Supabase Ziyaretçi Sayacı ve Tema Yönetimi JS -->
 <script>
-    // Sayfa yüklendiğinde hafızadaki temayı uygula
+    // Supabase İstemci Bağlantısı
+    const supabaseUrl = 'SENIN_SUPABASE_URL';
+    const supabaseKey = 'SENIN_SUPABASE_ANON_KEY';
+    const _supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+    async function trackVisitor() {
+        if (!localStorage.getItem('visited')) {
+            try {
+                const { data } = await _supabase.from('site_counters').select('value').eq('key', 'total_visitors').single();
+                if (data) {
+                    await _supabase.from('site_counters').update({ value: data.value + 1 }).eq('key', 'total_visitors');
+                    localStorage.setItem('visited', 'true');
+                }
+            } catch (err) {
+                console.error("Ziyaretçi sayacı hatası:", err);
+            }
+        }
+    }
+    trackVisitor();
+
+    // Tema Mantığı
     function initTheme() {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'purple') {
@@ -246,7 +267,6 @@
         }
     }
 
-    // Sayfa DOM içeriği hazır olduğunda ve yükleme tamamlandığında çalıştır
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initTheme);
     } else {
