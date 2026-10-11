@@ -63,7 +63,7 @@
             <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden shadow-inner flex items-center justify-center border border-pinkAccent/20 mb-6">
                 <iframe 
                     id="video-player"
-                    src="https://dood.to/e/BURAYA_DOODSTREAM_ID" 
+                    src="https://dood.to/e/5ieu5emnp9sx" 
                     class="w-full h-full border-0" 
                     allowfullscreen>
                 </iframe>
@@ -89,7 +89,7 @@
             </div>
             <div class="bg-white/80 text-gray-800 px-4 py-2 rounded-lg border border-pinkAccent/20 text-center">
                 <span class="opacity-60 block text-[10px]">ÇEVİRİ EKİBİ</span>
-                <span class="font-extrabold text-pinkAccent">Efsaneyiz Fansub</span>
+                <span id="fansub-name" class="font-extrabold text-pinkAccent">Efsaneyiz Fansub</span>
             </div>
         </div>
 
@@ -115,20 +115,20 @@
 
     <!-- JS Mantığı -->
     <script>
-        // 12 Bölümlük Video Linkleri Deposu (DoodStream ve Mega)
+        // 12 Bölümlük Video Linkleri Deposu
         const episodes = {
-            1: { dood: "https://dood.to/e/5ieu5emnp9sx", mega: "https://mega.nz/embed/BURAYA_BOLUM_1_MEGA_ID" },
-            2: { dood: "https://dood.to/e/a32006j3ljay", mega: "https://mega.nz/embed/BURAYA_BOLUM_2_MEGA_ID" },
-            3: { dood: "https://dood.to/e/lquutbps0ekt", mega: "https://mega.nz/embed/BURAYA_BOLUM_3_MEGA_ID" },
-            4: { dood: "https://dood.to/e/8vydapc0bau0", mega: "https://mega.nz/embed/BURAYA_BOLUM_4_MEGA_ID" },
-            5: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_5_MEGA_ID" },
-            6: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_6_MEGA_ID" },
-            7: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_7_MEGA_ID" },
-            8: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_8_MEGA_ID" },
-            9: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_9_MEGA_ID" },
-            10: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_10_MEGA_ID" },
-            11: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_11_MEGA_ID" },
-            12: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_12_MEGA_ID" }
+            1: { dood: "https://dood.to/e/5ieu5emnp9sx", mega: "https://mega.nz/embed/BURAYA_BOLUM_1_MEGA_ID", fansub: "Efsaneyiz Fansub" },
+            2: { dood: "https://dood.to/e/a32006j3ljay", mega: "https://mega.nz/embed/BURAYA_BOLUM_2_MEGA_ID", fansub: "Efsaneyiz Fansub" },
+            3: { dood: "https://dood.to/e/lquutbps0ekt", mega: "https://mega.nz/embed/BURAYA_BOLUM_3_MEGA_ID", fansub: "Efsaneyiz Fansub" },
+            4: { dood: "https://dood.to/e/8vydapc0bau0", mega: "https://mega.nz/embed/BURAYA_BOLUM_4_MEGA_ID", fansub: "Efsaneyiz Fansub" },
+            5: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/u1UjmSAC#JxiMZfZNcoWcpEjMkstWEwF36r9Ek85RkK0UfQX_mK0", fansub: "Zaichii" },
+            6: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed//XxMFlYRC#AkxtPbaLdMmAHrkpYI5L038pfXB0-iYy8RD-iVc07tA", fansub: "Zaichii" },
+            7: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/6gszRYbD#aLu0kIuOrCqcZhkUqiiT_4AuDlOLTHo4OGe-kwB9VQc", fansub: "Zaichii" },
+            8: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/Tgl1WIYY#8yI3KK-dEdz0u52nphybWdzEaey1mCVAvaHi7dclLGo", fansub: "Zaichii" },
+            9: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/31tB1IKA#0B0JdA06SuFBWuCp6P0uO1S5kPlzUvQ56lWAxnoTvm4D", fansub: "Zaichii" },
+            10: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/Pwsk1KxT#F1slBoqF3su1UjRoRuxzOi5LKrdOX9-KOXhXhwuDDeE", fansub: "Zaichii" },
+            11: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/64VBVCRK#tHQc_cEmqJUPuHyfYpd96Xerb6XWBW9MKD71uzdOSns", fansub: "Zaichii" },
+            12: { dood: "https://dood.to/e/BURAYA_DOODSTREAM_ID", mega: "https://mega.nz/embed/u80EXICL#4t__Am6m8stSoaMnmeNmcT_b-f2ZNPb7ttchfKaCJnw", fansub: "Zaichii" }
         };
 
         let currentEpisode = 1;
@@ -161,6 +161,9 @@
             
             const player = document.getElementById('video-player');
             player.src = episodes[epNumber][currentServer];
+
+            // Fansub Bilgisini Güncelle
+            document.getElementById('fansub-name').innerText = episodes[epNumber].fansub;
 
             renderEpisodeButtons();
         }
