@@ -3,30 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Girls und Panzer 1. Sezon 1. Bölüm İzle - GirlsundPanzerizle</title>
+    <title>Girls und Panzer 1. Sezon İzle - GirlsundPanzerizle</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Supabase JS Kütüphanesi -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        // Pembe Tema
-                        pinkBg: '#fdf2f8',
-                        pinkCard: '#fce7f3',
-                        pinkHeader: '#fbcfe8',
-                        pinkText: '#831843',
-                        pinkAccent: '#db2777',
-                        pinkAccentHover: '#be185d',
-
-                        // Mor Tema
-                        purpleBg: '#0f172a',
-                        purpleCard: '#1e293b',
-                        purpleHeader: '#020617',
-                        purpleText: '#f8fafc',
-                        purpleAccent: '#a855f7',
-                        purpleAccentHover: '#9333ea',
+                        pinkBg: '#fdf2f8', pinkCard: '#fce7f3', pinkHeader: '#fbcfe8', pinkText: '#831843', pinkAccent: '#db2777', pinkAccentHover: '#be185d',
+                        purpleBg: '#0f172a', purpleCard: '#1e293b', purpleHeader: '#020617', purpleText: '#f8fafc', purpleAccent: '#a855f7', purpleAccentHover: '#9333ea',
                     }
                 }
             }
@@ -41,14 +27,11 @@
             <a href="index.html" class="text-xl font-black tracking-wider flex items-center gap-2">
                 🌸 GIRLSundPANZER<span class="text-xs bg-pinkAccent text-white px-2 py-0.5 rounded-full">izle.com</span>
             </a>
-            
             <div class="flex items-center gap-6">
                 <nav class="space-x-6 font-semibold text-sm">
                     <a href="index.html" class="hover:underline">Ana Sayfa</a>
                     <a href="index.html#sezonlar" class="hover:underline">Sezonlar</a>
                 </nav>
-
-                <!-- Tema Değiştirme Butonu -->
                 <button onclick="toggleTheme()" id="theme-btn" class="bg-white/80 hover:bg-white text-xs font-bold px-3 py-1.5 rounded-full border border-pinkAccent/30 shadow-sm flex items-center gap-1.5 transition">
                     <span id="theme-icon">🔮</span>
                     <span id="theme-text">Karanlık / Mor Tema</span>
@@ -62,15 +45,13 @@
         
         <!-- Video Kartı -->
         <div class="site-card bg-pinkCard p-4 md:p-6 rounded-2xl border border-pinkAccent/20 shadow-md transition-colors duration-300">
-            
-            <!-- Başlık ve Kaynaklar -->
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
                 <div>
                     <span class="bg-pinkAccent text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">1. Sezon</span>
-                    <h1 class="text-2xl font-black mt-1">1. Bölüm: "Sensha-do Başlıyor!"</h1>
+                    <h1 id="episode-title" class="text-2xl font-black mt-1">Girls und Panzer - 1. Bölüm</h1>
                 </div>
                 
-                <!-- Alternatif Sunucular -->
+                <!-- Sunucu Seçimi -->
                 <div class="flex items-center gap-2 text-xs font-bold">
                     <span class="opacity-70">Sunucu:</span>
                     <button onclick="changeServer('okru')" id="btn-okru" class="bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition">OK.ru</button>
@@ -78,68 +59,53 @@
                 </div>
             </div>
 
-            <!-- Video Player (16:9) -->
-            <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden shadow-inner flex items-center justify-center border border-pinkAccent/20">
+            <!-- Video Player -->
+            <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden shadow-inner flex items-center justify-center border border-pinkAccent/20 mb-6">
                 <iframe 
                     id="video-player"
-                    src="https://ok.ru/videoembed/BURAYA_OKRU_VIDEO_ID" 
+                    src="https://ok.ru/videoembed/BURAYA_BOLUM_1_OKRU_ID" 
                     class="w-full h-full border-0" 
                     allowfullscreen>
                 </iframe>
             </div>
 
-            <!-- Önceki / Sonraki Bölüm Butonları -->
-            <div class="flex justify-between items-center mt-4">
-                <button class="bg-white/80 hover:bg-white text-gray-800 text-xs font-bold px-4 py-2 rounded-xl border border-pinkAccent/20 transition opacity-50 cursor-not-allowed">← Önceki Bölüm</button>
-                <a href="izle.html" class="bg-pinkAccent hover:bg-pinkAccentHover text-white text-xs font-bold px-4 py-2 rounded-xl shadow transition">Sonraki Bölüm →</a>
+            <!-- Bölüm Seçim Butonları Grid -->
+            <div class="border-t border-pinkAccent/20 pt-4">
+                <h3 class="text-xs font-extrabold uppercase tracking-wider mb-3 opacity-80">Bölüm Seç:</h3>
+                <div id="episode-buttons" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
+                    <!-- JS ile dinamik butonlar yüklenecek -->
+                </div>
             </div>
         </div>
 
-        <!-- Bölüm Seçim Listesi -->
-        <div class="site-card bg-pinkCard p-4 rounded-2xl border border-pinkAccent/20 transition-colors duration-300">
-            <h3 class="text-sm font-extrabold mb-3">1. Sezon Bölümleri</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 text-xs font-bold">
-                <a href="izle.html" class="bg-pinkAccent text-white p-2.5 rounded-xl text-center shadow">1. Bölüm</a>
-                <a href="#" class="bg-white/80 hover:bg-white text-gray-800 p-2.5 rounded-xl text-center border border-pinkAccent/20 transition">2. Bölüm</a>
-                <a href="#" class="bg-white/80 hover:bg-white text-gray-800 p-2.5 rounded-xl text-center border border-pinkAccent/20 transition">3. Bölüm</a>
-                <a href="#" class="bg-white/80 hover:bg-white text-gray-800 p-2.5 rounded-xl text-center border border-pinkAccent/20 transition">4. Bölüm</a>
-                <a href="#" class="bg-white/80 hover:bg-white text-gray-800 p-2.5 rounded-xl text-center border border-pinkAccent/20 transition">5. Bölüm</a>
-                <a href="#" class="bg-white/80 hover:bg-white text-gray-800 p-2.5 rounded-xl text-center border border-pinkAccent/20 transition">6. Bölüm</a>
-            </div>
-        </div>
-
-        <!-- Çeviri ve Emek Bilgisi Kutusu -->
+        <!-- Çeviri ve Emek Bilgisi -->
         <div class="site-card bg-pinkCard p-4 rounded-xl border border-pinkAccent/20 flex flex-col md:flex-row justify-between items-center gap-3 text-xs font-semibold transition-colors duration-300">
             <div class="flex items-center gap-2">
                 <span class="text-lg">🎬</span>
                 <div>
                     <p class="font-bold text-sm">Çeviri & Sub Hizmeti</p>
-                    <p class="opacity-70">Bu bölümün Türkçe çevirisi ilgili Fansub ekibi tarafından hazırlanmıştır.</p>
+                    <p class="opacity-70">Bu serinin Türkçe altyazısı ve encode işlemleri ilgili Fansub ekibi tarafından hazırlanmıştır.</p>
                 </div>
             </div>
             <div class="bg-white/80 text-gray-800 px-4 py-2 rounded-lg border border-pinkAccent/20 text-center">
                 <span class="opacity-60 block text-[10px]">ÇEVİRİ EKİBİ</span>
-                <span class="font-extrabold text-pinkAccent">Girls und Panzer TR</span>
+                <span class="font-extrabold text-pinkAccent">SendemiBrütüs / Girls und Panzer TR</span>
             </div>
         </div>
 
-      <!-- Yorumlar Bölümü (Geçici Yakında Gelecek Modu) -->
-<div class="relative bg-pinkCard p-6 rounded-2xl border border-pinkAccent/20 overflow-hidden shadow-sm">
-    
-    <!-- Arkadaki Blur Efekti Verilmiş İçerik -->
-    <div class="filter blur-[3px] pointer-events-none select-none opacity-40 space-y-4">
-        <h3 class="text-xl font-bold">Film Yorumları</h3>
-        <div class="bg-white/50 p-4 rounded-xl">Örnek Yorum Alanı</div>
-    </div>
+        <!-- Yorumlar Bölümü (Geçici Yakında Gelecek Modu) -->
+        <div class="relative bg-pinkCard p-6 rounded-2xl border border-pinkAccent/20 overflow-hidden shadow-sm">
+            <div class="filter blur-[3px] pointer-events-none select-none opacity-40 space-y-4">
+                <h3 class="text-xl font-bold">Bölüm Yorumları</h3>
+                <div class="bg-white/50 p-4 rounded-xl">Örnek Yorum Alanı</div>
+            </div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 backdrop-blur-[2px] z-10 text-white text-center p-4">
+                <span class="text-2xl font-black mb-1">💬 Yorum Sistemi</span>
+                <span class="text-sm font-semibold bg-pinkAccent px-4 py-2 rounded-full shadow-lg animate-pulse">Çok Yakında Aktif! 🚀</span>
+                <p class="text-xs opacity-90 mt-2 font-medium">Altyapı güncellemeleri tamamlanıyor.</p>
+            </div>
+        </div>
 
-    <!-- Üzerindeki "Yakında Gelecek" Overlay Katmanı -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 backdrop-blur-[2px] z-10 text-white text-center p-4">
-        <span class="text-2xl font-black mb-1">Yorum Sistemi</span>
-        <span class="text-sm font-semibold bg-pinkAccent px-4 py-2 rounded-full shadow-lg animate-pulse">Çok Yakında Aktif!</span>
-        <p class="text-xs opacity-90 mt-2 font-medium">Güncellenecek</p>
-    </div>
-
-</div>
     </main>
 
     <!-- Footer -->
@@ -149,114 +115,85 @@
 
     <!-- JS Mantığı -->
     <script>
-        // Supabase Bağlantı Bilgileri
-        const SUPABASE_URL = 'https://drxetzpojimudcxhgvb.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyeGV0enBvamltdXVkY3hoZ3ZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2MjQxNzEsImV4cCI6MjEwNzIwMDE3MX0.aZQ2IfIuRPJJmv8kkBmQ2LFELK9dd2Ye1PUjO-IZvf8';
-        
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        const currentPageId = 'sezon1-bolum1'; // Her sayfanın kendi kimliği
-
-        // Veritabanından Yorumları Çekme
-        async function fetchComments() {
-            const commentsList = document.getElementById('comments-list');
-            const { data, error } = await supabaseClient
-                .from('comments')
-                .select('*')
-                .eq('page_id', currentPageId)
-                .order('created_at', { ascending: false });
-
-            if (error) {
-                console.error('Yorumlar çekilirken hata oluştu:', error);
-                return;
-            }
-
-            commentsList.innerHTML = '';
-            if (data.length === 0) {
-                commentsList.innerHTML = '<p class="text-xs opacity-60 text-center py-2">Henüz yorum yapılmamış. İlk yorumu sen yaz!</p>';
-                return;
-            }
-
-            data.forEach(comment => {
-                const dateObj = new Date(comment.created_at);
-                const timeString = `${dateObj.getDate().toString().padStart(2, '0')}/${(dateObj.getMonth()+1).toString().padStart(2, '0')}/${dateObj.getFullYear()} - ${dateObj.getHours().toString().padStart(2, '0')}:${dateObj.getMinutes().toString().padStart(2, '0')}`;
-                
-                const commentEl = document.createElement('div');
-                commentEl.className = "bg-white/60 text-gray-800 p-3 rounded-xl border border-pinkAccent/10 text-xs shadow-sm";
-                commentEl.innerHTML = `
-                    <div class="flex items-center justify-between mb-1">
-                        <span class="font-bold text-pinkAccent">${comment.author || 'Anonymous'}</span>
-                        <span class="text-[10px] opacity-50">${timeString}</span>
-                    </div>
-                    <p class="opacity-90">${comment.text}</p>
-                `;
-                commentsList.appendChild(commentEl);
-            });
-        }
-
-        // Veritabanına Yorum Gönderme
-        async function postComment(event) {
-            event.preventDefault();
-            const authorInput = document.getElementById('comment-author');
-            const textInput = document.getElementById('comment-text');
-
-            const author = authorInput.value.trim() !== "" ? authorInput.value.trim() : "Anonymous";
-            const text = textInput.value.trim();
-
-            if (!text) return;
-
-            const { error } = await supabaseClient
-                .from('comments')
-                .insert([{ page_id: currentPageId, author: author, text: text }]);
-
-            if (error) {
-                alert('Yorum gönderilemedi: ' + error.message);
-                return;
-            }
-
-            authorInput.value = "";
-            textInput.value = "";
-            fetchComments();
-        }
-
-        // Sayfa açıldığında yorumları yükle
-        document.addEventListener('DOMContentLoaded', fetchComments);
-
-        // Aktif bölüme ait video bağlantıları
-        const episodeLinks = {
-            okru: "https://ok.ru/videoembed/BURAYA_OKRU_VIDEO_ID",
-            mega: "https://mega.nz/embed/BURAYA_MEGA_VIDEO_ID"
+        // 12 Bölümlük Video Linkleri Deposu
+        const episodes = {
+            1: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_1_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_1_MEGA_ID" },
+            2: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_2_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_2_MEGA_ID" },
+            3: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_3_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_3_MEGA_ID" },
+            4: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_4_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_4_MEGA_ID" },
+            5: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_5_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_5_MEGA_ID" },
+            6: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_6_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_6_MEGA_ID" },
+            7: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_7_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_7_MEGA_ID" },
+            8: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_8_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_8_MEGA_ID" },
+            9: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_9_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_9_MEGA_ID" },
+            10: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_10_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_10_MEGA_ID" },
+            11: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_11_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_11_MEGA_ID" },
+            12: { okru: "https://ok.ru/videoembed/BURAYA_BOLUM_12_OKRU_ID", mega: "https://mega.nz/embed/BURAYA_BOLUM_12_MEGA_ID" }
         };
 
+        let currentEpisode = 1;
+        let currentServer = 'okru';
+
+        // Sayfa yüklendiğinde butonları oluştur
+        function renderEpisodeButtons() {
+            const container = document.getElementById('episode-buttons');
+            container.innerHTML = '';
+
+            for (let i = 1; i <= 12; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = `${i}. Bölüm`;
+                
+                if (i === currentEpisode) {
+                    btn.className = "ep-btn bg-pinkAccent text-white font-bold py-2 rounded-xl text-xs shadow transition";
+                } else {
+                    btn.className = "ep-btn bg-white/80 hover:bg-white text-gray-800 font-semibold py-2 rounded-xl text-xs border border-pinkAccent/20 transition";
+                }
+
+                btn.onclick = () => selectEpisode(i);
+                container.appendChild(btn);
+            }
+        }
+
+        // Bölüm Değiştirme
+        function selectEpisode(epNumber) {
+            currentEpisode = epNumber;
+            document.getElementById('episode-title').innerText = `Girls und Panzer - ${epNumber}. Bölüm`;
+            
+            const player = document.getElementById('video-player');
+            player.src = episodes[epNumber][currentServer];
+
+            renderEpisodeButtons();
+        }
+
+        // Sunucu Değiştirme
         function changeServer(server) {
+            currentServer = server;
             const player = document.getElementById('video-player');
             const btnOkru = document.getElementById('btn-okru');
             const btnMega = document.getElementById('btn-mega');
 
+            player.src = episodes[currentEpisode][currentServer];
+
             if (server === 'okru') {
-                player.src = episodeLinks.okru;
                 btnOkru.className = "bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition";
                 btnMega.className = "bg-white/80 hover:bg-white text-gray-800 px-3 py-1.5 rounded-lg border border-pinkAccent/30 shadow-sm transition";
-            } else if (server === 'mega') {
-                player.src = episodeLinks.mega;
+            } else {
                 btnMega.className = "bg-pinkAccent text-white px-3 py-1.5 rounded-lg shadow transition";
                 btnOkru.className = "bg-white/80 hover:bg-white text-gray-800 px-3 py-1.5 rounded-lg border border-pinkAccent/30 shadow-sm transition";
             }
         }
 
-        // Sayfa yüklendiğinde hafızadaki temayı uygula
+        // Tema Mantığı
         function initTheme() {
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'purple') {
-                applyPurpleTheme();
-            } else {
-                applyPinkTheme();
-            }
+            if (savedTheme === 'purple') { applyPurpleTheme(); } else { applyPinkTheme(); }
         }
 
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initTheme);
+            document.addEventListener('DOMContentLoaded', () => { initTheme(); renderEpisodeButtons(); });
         } else {
             initTheme();
+            renderEpisodeButtons();
         }
 
         function toggleTheme() {
