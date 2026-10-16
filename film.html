@@ -14,6 +14,8 @@
                     colors: {
                         pinkBg: '#fdf2f8', pinkCard: '#fce7f3', pinkHeader: '#fbcfe8', pinkText: '#831843', pinkAccent: '#db2777', pinkAccentHover: '#be185d',
                         purpleBg: '#0f172a', purpleCard: '#1e293b', purpleHeader: '#020617', purpleText: '#f8fafc', purpleAccent: '#a855f7', purpleAccentHover: '#9333ea',
+                        // Sensha-do / Askeri Haki Yeşil Teması
+                        militaryBg: '#1c241d', militaryCard: '#2a362c', militaryHeader: '#141a15', militaryText: '#e2e8f0', militaryAccent: '#48654b', militaryAccentHover: '#39513c'
                     }
                 }
             }
@@ -33,7 +35,7 @@
                     <a href="index.html" class="hover:underline">Ana Sayfa</a>
                     <a href="index.html#sezonlar" class="hover:underline">Sezonlar</a>
                 </nav>
-                <button onclick="toggleTheme()" id="theme-btn" class="bg-white/80 hover:bg-white text-xs font-bold px-3 py-1.5 rounded-full border border-pinkAccent/30 shadow-sm flex items-center gap-1.5 transition">
+                <button onclick="toggleTheme()" id="theme-btn" class="bg-white/80 hover:bg-white text-xs font-bold px-3 py-1.5 rounded-lg border border-pinkAccent/30 shadow-sm flex items-center gap-1.5 transition">
                     <span id="theme-icon">🔮</span>
                     <span id="theme-text">Karanlık / Mor Tema</span>
                 </button>
@@ -45,11 +47,11 @@
     <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full space-y-6">
         
         <!-- Video Kartı -->
-        <div class="site-card bg-pinkCard p-4 md:p-6 rounded-2xl border border-pinkAccent/20 shadow-md transition-colors duration-300">
+        <div class="site-card bg-pinkCard p-4 md:p-6 rounded-xl border border-pinkAccent/20 shadow-md transition-colors duration-300">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
                 <div>
-                    <span class="bg-pinkAccent text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Sinema Filmi</span>
-                    <h1 class="text-2xl font-black mt-1">Girls und Panzer: der Film</h1>
+                    <span class="bg-pinkAccent text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">🪖 Sinema Filmi</span>
+                    <h1 class="text-2xl font-black mt-1 tracking-tight">Girls und Panzer: der Film</h1>
                 </div>
                 <div class="flex items-center gap-2 text-xs font-bold">
                     <span class="opacity-70">Sunucu:</span>
@@ -62,7 +64,7 @@
             <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden shadow-inner flex items-center justify-center border border-pinkAccent/20">
                 <iframe 
                     id="video-player"
-                    src="https://ok.ru/videoembed/BURAYA_FILM_OKRU_ID" 
+                    src="https://ok.ru/videoembed/3258101008906" 
                     class="w-full h-full border-0" 
                     allowfullscreen>
                 </iframe>
@@ -84,23 +86,23 @@
             </div>
         </div>
 
-<!-- Yorumlar Bölümü (Geçici Yakında Gelecek Modu) -->
-<div class="relative bg-pinkCard p-6 rounded-2xl border border-pinkAccent/20 overflow-hidden shadow-sm">
-    
-    <!-- Arkadaki Blur Efekti Verilmiş İçerik -->
-    <div class="filter blur-[3px] pointer-events-none select-none opacity-40 space-y-4">
-        <h3 class="text-xl font-bold">Film Yorumları</h3>
-        <div class="bg-white/50 p-4 rounded-xl">Örnek Yorum Alanı</div>
-    </div>
+        <!-- Yorumlar Bölümü -->
+        <div class="relative bg-pinkCard p-6 rounded-xl border border-pinkAccent/20 overflow-hidden shadow-sm site-card transition-colors duration-300">
+            
+            <!-- Arkadaki Blur Efekti Verilmiş İçerik -->
+            <div class="filter blur-[3px] pointer-events-none select-none opacity-40 space-y-4">
+                <h3 class="text-xl font-bold">Film Yorumları</h3>
+                <div class="bg-white/50 p-4 rounded-xl">Örnek Yorum Alanı</div>
+            </div>
 
-    <!-- Üzerindeki "Yakında Gelecek" Overlay Katmanı -->
-    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 backdrop-blur-[2px] z-10 text-white text-center p-4">
-        <span class="text-2xl font-black mb-1">Yorum Sistemi</span>
-        <span class="text-sm font-semibold bg-pinkAccent px-4 py-2 rounded-full shadow-lg animate-pulse">Çok Yakında Aktif!</span>
-        <p class="text-xs opacity-90 mt-2 font-medium">Güncellenecek</p>
-    </div>
+            <!-- Üzerindeki "Yakında Gelecek" Overlay Katmanı -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-[2px] z-10 text-white text-center p-4">
+                <span class="text-2xl font-black mb-1">💬 Yorum Sistemi</span>
+                <span class="text-sm font-semibold bg-pinkAccent px-4 py-2 rounded-full shadow-lg animate-pulse">Çok Yakında Aktif! 🚀</span>
+                <p class="text-xs opacity-90 mt-2 font-medium">Altyapı güncellemeleri tamamlanıyor.</p>
+            </div>
 
-</div>
+        </div>
 
     </main>
 
@@ -109,83 +111,18 @@
         <p>Girls und Panzer Türkiye Topluluğu © 2026</p>
     </footer>
 
-    <!-- JS Mantığı (Supabase + Tema + Sunucu Değiştirme) -->
+    <!-- JS Mantığı -->
     <script>
         // Supabase Bağlantı Bilgileri
         const SUPABASE_URL = 'https://drxetzpojimudcxhgvb.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyeGV0enBvamltdXVkY3hoZ3ZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2MjQxNzEsImV4cCI6MjEwNzIwMDE3MX0.aZQ2IfIuRPJJmv8kkBmQ2LFELK9dd2Ye1PUjO-IZvf8';
         
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-        const currentPageId = 'film-der-film'; // Filme özel benzersiz kimlik
+        const currentPageId = 'film-der-film';
 
-        // Veritabanından Yorumları Çekme
-        async function fetchComments() {
-            const commentsList = document.getElementById('comments-list');
-            const { data, error } = await supabaseClient
-                .from('comments')
-                .select('*')
-                .eq('page_id', currentPageId)
-                .order('created_at', { ascending: false });
-
-            if (error) {
-                console.error('Yorumlar çekilirken hata oluştu:', error);
-                return;
-            }
-
-            commentsList.innerHTML = '';
-            if (data.length === 0) {
-                commentsList.innerHTML = '<p class="text-xs opacity-60 text-center py-2">Henüz yorum yapılmamış. İlk yorumu sen yaz!</p>';
-                return;
-            }
-
-            data.forEach(comment => {
-                const dateObj = new Date(comment.created_at);
-                const timeString = `${dateObj.getDate().toString().padStart(2, '0')}/${(dateObj.getMonth()+1).toString().padStart(2, '0')}/${dateObj.getFullYear()} - ${dateObj.getHours().toString().padStart(2, '0')}:${dateObj.getMinutes().toString().padStart(2, '0')}`;
-                
-                const commentEl = document.createElement('div');
-                commentEl.className = "bg-white/60 text-gray-800 p-3 rounded-xl border border-pinkAccent/10 text-xs shadow-sm";
-                commentEl.innerHTML = `
-                    <div class="flex items-center justify-between mb-1">
-                        <span class="font-bold text-pinkAccent">${comment.author || 'Anonymous'}</span>
-                        <span class="text-[10px] opacity-50">${timeString}</span>
-                    </div>
-                    <p class="opacity-90">${comment.text}</p>
-                `;
-                commentsList.appendChild(commentEl);
-            });
-        }
-
-        // Veritabanına Yorum Gönderme
-        async function postComment(event) {
-            event.preventDefault();
-            const authorInput = document.getElementById('comment-author');
-            const textInput = document.getElementById('comment-text');
-
-            const author = authorInput.value.trim() !== "" ? authorInput.value.trim() : "Anonymous";
-            const text = textInput.value.trim();
-
-            if (!text) return;
-
-            const { error } = await supabaseClient
-                .from('comments')
-                .insert([{ page_id: currentPageId, author: author, text: text }]);
-
-            if (error) {
-                alert('Yorum gönderilemedi: ' + error.message);
-                return;
-            }
-
-            authorInput.value = "";
-            textInput.value = "";
-            fetchComments();
-        }
-
-        // Sayfa açıldığında yorumları yükle
-        document.addEventListener('DOMContentLoaded', fetchComments);
-
-        // Film Video Linkleri
+        // Film Video Linkleri Deposu
         const episodeLinks = {
-            okru: "https://ok.ru/videoembed/BURAYA_FILM_OKRU_ID",
+            okru: "https://ok.ru/videoembed/3258101008906",
             mega: "https://mega.nz/embed/BURAYA_FILM_MEGA_ID"
         };
 
@@ -205,7 +142,7 @@
             }
         }
 
-        // Tema Hafızası ve Yönetimi
+        // Tema Yönetimi
         function initTheme() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'purple') {
