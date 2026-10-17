@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Girls und Panzer: OVA Bölümleri İzle - GirlsundPanzerizle</title>
+    <title>Girls und Panzer OVA Bölümleri İzle - GirlsundPanzerizle</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Supabase JS Kütüphanesi -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         tailwind.config = {
@@ -44,32 +43,23 @@
     <!-- İzleme Alanı -->
     <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full space-y-6">
         
-        <!-- OVA Seçim Butonları (1'den 6'ya) -->
-        <div class="flex flex-wrap gap-2 justify-center mb-2">
-            <button onclick="changeOva(1)" id="ova-btn-1" class="ova-select-btn bg-pinkAccent text-white text-xs font-bold px-3.5 py-2 rounded-lg shadow transition">OVA 1 (Anzio)</button>
-            <button onclick="changeOva(2)" id="ova-btn-2" class="ova-select-btn bg-white/80 text-gray-800 text-xs font-bold px-3.5 py-2 rounded-lg border border-pinkAccent/30 shadow-sm transition">OVA 2</button>
-            <button onclick="changeOva(3)" id="ova-btn-3" class="ova-select-btn bg-white/80 text-gray-800 text-xs font-bold px-3.5 py-2 rounded-lg border border-pinkAccent/30 shadow-sm transition">OVA 3 (TauVideo)</button>
-            <button onclick="changeOva(4)" id="ova-btn-4" class="ova-select-btn bg-white/80 text-gray-800 text-xs font-bold px-3.5 py-2 rounded-lg border border-pinkAccent/30 shadow-sm transition">OVA 4</button>
-            <button onclick="changeOva(5)" id="ova-btn-5" class="ova-select-btn bg-white/80 text-gray-800 text-xs font-bold px-3.5 py-2 rounded-lg border border-pinkAccent/30 shadow-sm transition">OVA 5</button>
-            <button onclick="changeOva(6)" id="ova-btn-6" class="ova-select-btn bg-white/80 text-gray-800 text-xs font-bold px-3.5 py-2 rounded-lg border border-pinkAccent/30 shadow-sm transition">OVA 6</button>
-        </div>
-
-        <!-- Video Kartı -->
+        <!-- Video Kartı (Bölüm Seçimi Kartın İçine Taşındı) -->
         <div class="site-card bg-pinkCard p-4 md:p-6 rounded-2xl border border-pinkAccent/20 shadow-md transition-colors duration-300">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
                 <div>
                     <span id="ova-badge" class="bg-pinkAccent text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Özel Bölüm / OVA 1</span>
                     <h1 id="ova-title" class="text-2xl font-black mt-1">Der Arbeitseinsatz! (Anzio Savaşı!)</h1>
                 </div>
+                
+                <!-- Sunucu Seçimi -->
                 <div class="flex items-center gap-2 text-xs font-bold">
                     <span class="opacity-70">Sunucu:</span>
-                    <!-- Sunucu butonları JavaScript ile dinamik olarak yüklenecek -->
                     <div id="server-buttons-container" class="flex items-center gap-2"></div>
                 </div>
             </div>
 
             <!-- Video Player -->
-            <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden shadow-inner flex items-center justify-center border border-pinkAccent/20">
+            <div class="relative w-full aspect-video bg-black rounded-xl overflow-hidden shadow-inner flex items-center justify-center border border-pinkAccent/20 mb-6">
                 <iframe 
                     id="video-player"
                     src="" 
@@ -77,9 +67,17 @@
                     allowfullscreen>
                 </iframe>
             </div>
+
+            <!-- Bölüm Seçim Butonları Grid (Kart İçinde) -->
+            <div class="border-t border-pinkAccent/20 pt-4">
+                <h3 class="text-xs font-extrabold uppercase tracking-wider mb-3 opacity-80">OVA / Özel Bölüm Seç:</h3>
+                <div id="ova-buttons" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
+                    <!-- JS ile dinamik butonlar yüklenecek -->
+                </div>
+            </div>
         </div>
 
-        <!-- Çeviri Ekibi -->
+        <!-- Çeviri ve Emek Bilgisi -->
         <div class="site-card bg-pinkCard p-4 rounded-xl border border-pinkAccent/20 flex flex-col md:flex-row justify-between items-center gap-3 text-xs font-semibold transition-colors duration-300">
             <div class="flex items-center gap-2">
                 <span class="text-lg">🎬</span>
@@ -90,7 +88,7 @@
             </div>
             <div class="bg-white/80 text-gray-800 px-4 py-2 rounded-lg border border-pinkAccent/20 text-center">
                 <span class="opacity-60 block text-[10px]">ÇEVİRİ EKİBİ</span>
-                <span class="font-extrabold text-pinkAccent">Girls und Panzer TR</span>
+                <span id="fansub-name" class="font-extrabold text-pinkAccent">Girls und Panzer TR</span>
             </div>
         </div>
 
@@ -101,15 +99,16 @@
                 <div class="bg-white/50 p-4 rounded-xl">Örnek Yorum Alanı</div>
             </div>
             <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 backdrop-blur-[2px] z-10 text-white text-center p-4">
-                <span class="text-2xl font-black mb-1">Yorum Sistemi</span>
-                <span class="text-sm font-semibold bg-pinkAccent px-4 py-2 rounded-full shadow-lg animate-pulse">Çok Yakında Aktif!</span>
+                <span class="text-2xl font-black mb-1">💬 Yorum Sistemi</span>
+                <span class="text-sm font-semibold bg-pinkAccent px-4 py-2 rounded-full shadow-lg animate-pulse">Çok Yakında Aktif! 🚀</span>
+                <p class="text-xs opacity-90 mt-2 font-medium">Altyapı güncellemeleri tamamlanıyor.</p>
             </div>
         </div>
 
     </main>
 
     <!-- Footer -->
-    <footer id="site-header" class="bg-pinkHeader border-t border-pinkAccent/20 py-6 text-center text-sm font-medium transition-colors duration-300">
+    <footer id="site-footer" class="bg-pinkHeader border-t border-pinkAccent/20 py-6 text-center text-sm font-medium transition-colors duration-300">
         <p>Girls und Panzer Türkiye Topluluğu © 2026</p>
     </footer>
 
@@ -119,7 +118,7 @@
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyeGV0enBvamltdXVkY3hoZ3ZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2MjQxNzEsImV4cCI6MjEwNzIwMDE3MX0.aZQ2IfIuRPJJmv8kkBmQ2LFELK9dd2Ye1PUjO-IZvf8';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Her OVA için sunucu ve link havuzu (OVA 3 için TauVideo, diğerleri DoodStream)
+        // OVA Veri Havuzu
         const ovaData = {
             1: {
                 title: "Der Arbeitseinsatz! (Anzio Savaşı!)",
@@ -168,27 +167,37 @@
         let currentOva = 1;
         let currentServerKey = '';
 
-        function changeOva(ovaNumber) {
+        // Kart İçindeki OVA Butonlarını Dinamik Oluşturma
+        function renderOvaButtons() {
+            const container = document.getElementById('ova-buttons');
+            container.innerHTML = '';
+
+            for (let i = 1; i <= 6; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = `OVA ${i}`;
+                
+                if (i === currentOva) {
+                    btn.className = "ep-btn bg-pinkAccent text-white font-bold py-2 rounded-xl text-xs shadow transition";
+                } else {
+                    btn.className = "ep-btn bg-white/80 hover:bg-white text-gray-800 font-semibold py-2 rounded-xl text-xs border border-pinkAccent/20 transition";
+                }
+
+                btn.onclick = () => selectOva(i);
+                container.appendChild(btn);
+            }
+        }
+
+        // OVA Seçimi
+        function selectOva(ovaNumber) {
             currentOva = ovaNumber;
-            
-            // Başlık ve Badge güncelleme
             document.getElementById('ova-badge').innerText = `Özel Bölüm / OVA ${ovaNumber}`;
             document.getElementById('ova-title').innerText = ovaData[ovaNumber].title;
 
-            // OVA Seçim Butonlarının Aktiflik Sınıfları
-            document.querySelectorAll('.ova-select-btn').forEach((btn, index) => {
-                const num = index + 1;
-                if (num === ovaNumber) {
-                    btn.className = "ova-select-btn bg-pinkAccent text-white text-xs font-bold px-3.5 py-2 rounded-lg shadow transition";
-                } else {
-                    btn.className = "ova-select-btn bg-white/80 text-gray-800 text-xs font-bold px-3.5 py-2 rounded-lg border border-pinkAccent/30 shadow-sm transition";
-                }
-            });
-
-            // Sunucu butonlarını seçilen OVA'ya göre dinamik olarak oluştur
+            renderOvaButtons();
             renderServerButtons();
         }
 
+        // Sunucu Butonlarını Oluşturma
         function renderServerButtons() {
             const container = document.getElementById('server-buttons-container');
             container.innerHTML = '';
@@ -196,8 +205,10 @@
             const availableServers = ovaData[currentOva].servers;
             const serverKeys = Object.keys(availableServers);
 
-            // Varsayılan olarak ilk sunucuyu seç
-            currentServerKey = serverKeys[0];
+            // Eğer kayıtlı sunucu mevcut listede yoksa ilk sunucuya sıfırla
+            if (!availableServers[currentServerKey]) {
+                currentServerKey = serverKeys[0];
+            }
 
             serverKeys.forEach(key => {
                 const btn = document.createElement('button');
@@ -210,11 +221,11 @@
             selectServer(currentServerKey);
         }
 
+        // Sunucu Seçimi
         function selectServer(serverKey) {
             currentServerKey = serverKey;
             const availableServers = ovaData[currentOva].servers;
 
-            // Sunucu butonlarının aktiflik görünümlerini güncelle
             Object.keys(availableServers).forEach(key => {
                 const btn = document.getElementById(`btn-server-${key}`);
                 if (btn) {
@@ -226,26 +237,26 @@
                 }
             });
 
-            // Video Oynatıcı Kaynağını (src) Güncelle
             const player = document.getElementById('video-player');
             player.src = availableServers[serverKey].url;
         }
-
-        // Sayfa açıldığında OVA 1 ile başlat
-        document.addEventListener('DOMContentLoaded', () => {
-            changeOva(1);
-        });
 
         // Tema Yönetimi
         function initTheme() {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'purple') { applyPurpleTheme(); } else { applyPinkTheme(); }
         }
+
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initTheme);
+            document.addEventListener('DOMContentLoaded', () => { 
+                initTheme(); 
+                selectOva(1); 
+            });
         } else {
             initTheme();
+            selectOva(1);
         }
+
         function toggleTheme() {
             const currentTheme = localStorage.getItem('theme');
             if (currentTheme === 'purple') {
@@ -256,29 +267,45 @@
                 applyPurpleTheme();
             }
         }
+
         function applyPurpleTheme() {
             const body = document.getElementById('site-body');
             const header = document.getElementById('site-header');
+            const footer = document.getElementById('site-footer');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+
             if (body) body.className = "bg-purpleBg text-purpleText font-sans min-h-screen flex flex-col justify-between transition-colors duration-300";
             if (header) header.className = "bg-purpleHeader border-b border-purpleAccent/20 sticky top-0 z-50 shadow-sm transition-colors duration-300";
+            if (footer) footer.className = "bg-purpleHeader border-t border-purpleAccent/20 py-6 text-center text-sm font-medium transition-colors duration-300";
+
             document.querySelectorAll('.site-card').forEach(card => {
                 card.classList.remove('bg-pinkCard');
                 card.classList.add('bg-purpleCard', 'border-purpleAccent/20');
             });
-            document.getElementById('theme-icon').innerText = "🌸";
-            document.getElementById('theme-text').innerText = "Pembe Tema";
+
+            if (themeIcon) themeIcon.innerText = "🌸";
+            if (themeText) themeText.innerText = "Pembe Tema";
         }
+
         function applyPinkTheme() {
             const body = document.getElementById('site-body');
             const header = document.getElementById('site-header');
+            const footer = document.getElementById('site-footer');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeText = document.getElementById('theme-text');
+
             if (body) body.className = "bg-pinkBg text-pinkText font-sans min-h-screen flex flex-col justify-between transition-colors duration-300";
             if (header) header.className = "bg-pinkHeader border-b border-pinkAccent/20 sticky top-0 z-50 shadow-sm transition-colors duration-300";
+            if (footer) footer.className = "bg-pinkHeader border-t border-pinkAccent/20 py-6 text-center text-sm font-medium transition-colors duration-300";
+
             document.querySelectorAll('.site-card').forEach(card => {
                 card.classList.remove('bg-purpleCard', 'border-purpleAccent/20');
                 card.classList.add('bg-pinkCard');
             });
-            document.getElementById('theme-icon').innerText = "🔮";
-            document.getElementById('theme-text').innerText = "Karanlık / Mor Tema";
+
+            if (themeIcon) themeIcon.innerText = "🔮";
+            if (themeText) themeText.innerText = "Karanlık / Mor Tema";
         }
     </script>
 </body>
