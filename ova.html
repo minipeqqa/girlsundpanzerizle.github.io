@@ -43,12 +43,12 @@
     <!-- İzleme Alanı -->
     <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full space-y-6">
         
-        <!-- Video Kartı (Bölüm Seçimi Kartın İçine Taşındı) -->
+        <!-- Video Kartı -->
         <div class="site-card bg-pinkCard p-4 md:p-6 rounded-2xl border border-pinkAccent/20 shadow-md transition-colors duration-300">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
                 <div>
                     <span id="ova-badge" class="bg-pinkAccent text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">Özel Bölüm / OVA 1</span>
-                    <h1 id="ova-title" class="text-2xl font-black mt-1">Der Arbeitseinsatz! (Anzio Savaşı!)</h1>
+                    <h1 id="ova-title" class="text-2xl font-black mt-1">Water War! (Su Savaşı!)</h1>
                 </div>
                 
                 <!-- Sunucu Seçimi -->
@@ -68,10 +68,10 @@
                 </iframe>
             </div>
 
-            <!-- Bölüm Seçim Butonları Grid (Kart İçinde) -->
+            <!-- Bölüm Seçim Butonları Grid -->
             <div class="border-t border-pinkAccent/20 pt-4">
                 <h3 class="text-xs font-extrabold uppercase tracking-wider mb-3 opacity-80">OVA / Özel Bölüm Seç:</h3>
-                <div id="ova-buttons" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
+                <div id="ova-buttons" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
                     <!-- JS ile dinamik butonlar yüklenecek -->
                 </div>
             </div>
@@ -118,19 +118,19 @@
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRyeGV0enBvamltdXVkY3hoZ3ZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2MjQxNzEsImV4cCI6MjEwNzIwMDE3MX0.aZQ2IfIuRPJJmv8kkBmQ2LFELK9dd2Ye1PUjO-IZvf8';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // OVA Veri Havuzu
+        // 11 OVA İçin Veri Havuzu
         const ovaData = {
             1: {
-                title: "Der Arbeitseinsatz! (Anzio Savaşı!)",
+                title: "Water War! (Su Savaşı!)",
                 servers: {
-                    dood: { name: "DoodStream", url: "https://dooood.com/e/785b4wi7tydg" },
+                    dood: { name: "DoodStream", url: "https://dooood.com/e/d4gh81vjlimg" },
                     mega: { name: "Mega", url: "https://mega.nz/embed/BURAYA_OVA1_MEGA_ID" }
                 }
             },
             2: {
-                title: "Water War! (Su Savaşı!)",
+                title: "Survival War! (Hayatta Kalma Savaşı!)",
                 servers: {
-                    dood: { name: "DoodStream", url: "https://dooood.com/e/d4gh81vjlimg" },
+                    dood: { name: "DoodStream", url: "https://dooood.com/e/BURAYA_OVA2_DOOD_ID" },
                     mega: { name: "Mega", url: "https://mega.nz/embed/BURAYA_OVA2_MEGA_ID" }
                 }
             },
@@ -142,7 +142,7 @@
                 }
             },
             4: {
-                title: "Anzio Koukou Senshi! (Anzio Savaşçıları!)",
+                title: "Anglerfish War! (Fener Balığı Savaşı!)",
                 servers: {
                     dood: { name: "DoodStream", url: "https://dooood.com/e/vn8i673aszfs" },
                     mega: { name: "Mega", url: "https://mega.nz/embed/BURAYA_OVA4_MEGA_ID" }
@@ -156,10 +156,45 @@
                 }
             },
             6: {
-                title: "Tai-kyoku Sen! (Büyük Karşılaşma!)",
+                title: "Banquet War! (Ziyafet Savaşı!)",
                 servers: {
                     dood: { name: "DoodStream", url: "https://dooood.com/e/yz44bjeraudjD" },
                     mega: { name: "Mega", url: "https://mega.nz/embed/BURAYA_OVA6_MEGA_ID" }
+                }
+            },
+            7: {
+                title: "Kore ga Hontō no Anzio-sen Desu! (Bu Gerçek Anzio Savaşı!)",
+                servers: {
+                    dood: { name: "DoodStream", url: "https://dooood.com/e/785b4wi7tydg" },
+                    mega: { name: "Mega", url: "https://mega.nz/embed/BURAYA_OVA7_MEGA_ID" }
+                }
+            },
+            8: {
+                title: "Alice War! (Alice Savaşı!)",
+                servers: {
+                    dood: { name: "DoodStream", url: "https://dooood.com/e/BURAYA_OVA8_DOOD_ID" },
+                    mega: { name: "Mega", url: "https://mega.nz/embed/BURAYA_OVA8_MEGA_ID" }
+                }
+            },
+            9: {
+                title: "Taiyaki War! (Taiyaki Savaşı!)",
+                servers: {
+                    dood: { name: "DoodStream", url: "https://dooood.com/e/BURAYA_OVA9_DOOD_ID" },
+                    mega: { name: "Mega", url: "https://mega.nz/embed/BURAYA_OVA9_MEGA_ID" }
+                }
+            },
+            10: {
+                title: "Daikon War! (Turp Savaşı!)",
+                servers: {
+                    dood: { name: "DoodStream", url: "https://dooood.com/e/BURAYA_OVA10_DOOD_ID" },
+                    mega: { name: "Mega", url: "https://mega.nz/embed/BURAYA_OVA10_MEGA_ID" }
+                }
+            },
+            11: {
+                title: "Commander War! (Komutan Savaşı!)",
+                servers: {
+                    dood: { name: "DoodStream", url: "https://dooood.com/e/BURAYA_OVA11_DOOD_ID" },
+                    mega: { name: "Mega", url: "https://mega.nz/embed/BURAYA_OVA11_MEGA_ID" }
                 }
             }
         };
@@ -167,12 +202,12 @@
         let currentOva = 1;
         let currentServerKey = '';
 
-        // Kart İçindeki OVA Butonlarını Dinamik Oluşturma
+        // Kart İçindeki OVA Butonlarını Dinamik Oluşturma (1'den 11'e)
         function renderOvaButtons() {
             const container = document.getElementById('ova-buttons');
             container.innerHTML = '';
 
-            for (let i = 1; i <= 6; i++) {
+            for (let i = 1; i <= 11; i++) {
                 const btn = document.createElement('button');
                 btn.innerText = `OVA ${i}`;
                 
@@ -205,7 +240,6 @@
             const availableServers = ovaData[currentOva].servers;
             const serverKeys = Object.keys(availableServers);
 
-            // Eğer kayıtlı sunucu mevcut listede yoksa ilk sunucuya sıfırla
             if (!availableServers[currentServerKey]) {
                 currentServerKey = serverKeys[0];
             }
